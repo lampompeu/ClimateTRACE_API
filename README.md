@@ -1,2 +1,63 @@
-# ClimateTRACE_API
- 
+API - ClimateTRACE
+================
+
+# ClimateTRACE API Wrapper
+
+## Descrição
+
+Funções para obtenção de dados tabulares a partir da API dO
+ClimateTRACE. É possível requerir as emissões de cada fonte ou por
+setor.
+
+## Uso
+
+Para uma lista completa das opções de filtro, veja o arquivo
+API_Options.md.
+
+``` r
+# Obter fontes de emissão
+ctrace_download_sources(countries = NULL,
+                        sectors = NULL,
+                        subsectors = NULL,
+                        file_path = NULL,
+                        continents = NULL,
+                        groups = NULL,
+                        ownership = FALSE)
+
+
+# Totais de emissão por setor
+ctrace_download_summary(years = NULL,
+                        gas = NULL, 
+                        sectors = NULL,
+                        subsectors = NULL,
+                        countries = NULL,
+                        continents = NULL,
+                        groups = NULL,
+                        file_path = NULL)
+```
+
+### Obter fontes de emissão (*emission sources*) com coordenadas geográficas
+
+*Note as possíveis formas de inputs*
+
+``` r
+source("climatetrace_api.R")
+
+setores <- list("agriculture", "fossil-fuel-operations")
+subsetores <- "road-transportation,coal-mining"
+países <- "BRA"
+
+resultado <- ctrace_download_sources(sectors = setores, 
+                                     subsectors = subsetores, 
+                                     countries = paises)
+```
+
+### Obter totais de emissões por setor
+
+``` r
+source("climatetrace_api.R")
+
+resultado <- ctrace_download_summary(continents = "South America",
+                                     gas = "ch4",
+                                     sectors = list("agriculture", "forestry-and-land-use"))
+```

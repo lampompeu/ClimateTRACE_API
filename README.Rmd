@@ -3,7 +3,7 @@ title: "API - ClimateTRACE"
 output: github_document
 ---
 
-# ClimateTRACE API WrappeR
+# ClimateTRACE API Wrapper
 
 ## Descrição
 
